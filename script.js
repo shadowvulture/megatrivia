@@ -2,14 +2,16 @@
 let form = document.querySelector('form')
 var globalCorrectAnswerPosition
 var globalQuestionArray
-let a2 = document.querySelector('a2')
-let a3 = document.querySelector('a3')
-let a4 = document.querySelector('a4')
+let questionBox = document.getElementById('questionBox')
+let a1 = document.getElementById('a1')
+let a2 = document.getElementById('a2')
+let a3 = document.getElementById('a3')
+let a4 = document.getElementById('a4')
 
  form.addEventListener('submit', makeRequest)
 
  form.addEventListener('submit', makeRequest)
-let url = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple'
+let url = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple'
 function makeRequest() {
     event.preventDefault()
 //get value from form from input
@@ -46,62 +48,87 @@ shuffleArray(questionArray)
 console.log(questionArray)
 
 //This variable stores the index # of correct answer after shuffle
-var correctAnswerPosition = questionArray.indexOf(mc4) 
- globalCorrectAnswerPosition = questionArray.indexOf(mc4) 
+globalCorrectAnswerPosition = questionArray.indexOf(mc4) 
 globalQuestionArray = questionArray
-let card = document.querySelector('card')
+console.log(globalCorrectAnswerPosition)
+let q1Text = document.createElement('p')
+q1Text.innerHTML = questionArray[0]
+    if (globalCorrectAnswerPosition === 0) {
+        q1Text.setAttribute('class', 'dingDing')
+}
+let q2Text = document.createElement('p')
+q2Text.innerHTML = questionArray[1]
+if (globalCorrectAnswerPosition === 1) {
+    q2Text.setAttribute('class', 'dingDing')
+}
+
+let q3Text = document.createElement('p')
+q3Text.innerHTML = questionArray[2]
+if (globalCorrectAnswerPosition === 2) {
+    q3Text.setAttribute('class', 'dingDing')
+}
+
+let q4Text = document.createElement('p')
+q4Text.innerHTML = questionArray[3]
+if (globalCorrectAnswerPosition === 3) {
+    q4Text.setAttribute('class', 'dingDing')
+}
 // let a1 = document.querySelector('a1')
 // //Next up:  append multiple choice answers to bootstrap cards for front end.  
 // let a1Text = document.createElement('p')
 // a1Text.innerHTML = questionArray[0]
 
-let a1 = document.createElement('div')
-a1.innerHTML = questionArray[0]
-a1.setAttribute('class', 'card bg-primary')
-a1.setAttribute('onClick', 'myFunction1()')
+// let a1 = document.createElement('div')
+// a1.innerHTML = questionArray[0]
+// a1.setAttribute('class', 'card bg-primary')
+// a1.setAttribute('onClick', 'myFunction1()')
 // let mc1Create = document.createTextNode(questionArray[0])
 
 // console.log(mc1Create)
-let a2 = document.createElement('div')
-a2.innerHTML = questionArray[1]
-a2.setAttribute('class', 'card bg-primary')
+// let a2 = document.createElement('div')
+// a2.innerHTML = questionArray[1]
+// a2.setAttribute('class', 'card bg-primary')
 
-let a3 = document.createElement('div')
-a3.innerHTML = questionArray[2]
-a3.setAttribute('class', 'card bg-primary')
+// let a3 = document.createElement('div')
+// a3.innerHTML = questionArray[2]
+// a3.setAttribute('class', 'card bg-primary')
 
-let a4 = document.createElement('div')
-a4.innerHTML = questionArray[3]
-a4.setAttribute('class', 'card bg-primary')
+// let a4 = document.createElement('div')
+// a4.innerHTML = questionArray[3]
+// a4.setAttribute('class', 'card bg-primary')
 
-let mc1Create = document.createElement('div')
-mc1Create.innerText = questionArray[0]
+// let mc1Create = document.createElement('div')
+// mc1Create.innerText = questionArray[0]
 
-let mc2Create = document.createElement('div')
-mc2Create.innerText = questionArray[1]
+// let mc2Create = document.createElement('div')
+// mc2Create.innerText = questionArray[1]
 
-let mc3Create = document.createElement('div')
-mc3Create.innerText = questionArray[2]
+// let mc3Create = document.createElement('div')
+// mc3Create.innerText = questionArray[2]
 
-let mc4Create = document.createElement('div')
-mc4Create.innerText = questionArray[3]
+// let mc4Create = document.createElement('div')
+// mc4Create.innerText = questionArray[3]
 
-        let w75Div = document.createElement('div')
-           w75Div.setAttribute('class', 'card w-75')
+        // let w75Div = document.createElement('div')
+        //    w75Div.setAttribute('class', 'card w-75')
 
-           let bodyDiv = document.createElement('div')
-           bodyDiv.setAttribute('class', 'card-body')
+        // let bodyDiv = document.createElement('div')
+        //    bodyDiv.setAttribute('class', 'card-body')
 
             let nameElement = document.createElement('div')
        
             nameElement.innerHTML = question 
-            w75Div.appendChild(bodyDiv)
-            document.body.appendChild(w75Div)
-            bodyDiv.appendChild(nameElement)
-            bodyDiv.appendChild(a1)
-            bodyDiv.appendChild(a2)
-            bodyDiv.appendChild(a3)
-            bodyDiv.appendChild(a4)
+            // w75Div.appendChild(bodyDiv)
+            // document.body.appendChild(w75Div)
+            questionBox.appendChild(nameElement)
+            a1.appendChild(q1Text)
+            a2.appendChild(q2Text)
+            a3.appendChild(q3Text)
+            a4.appendChild(q4Text)
+//             bodyDiv.appendChild(a1)
+//             bodyDiv.appendChild(a2)
+//             bodyDiv.appendChild(a3)
+//             bodyDiv.appendChild(a4)
 
             
     })
@@ -109,12 +136,13 @@ mc4Create.innerText = questionArray[3]
         console.error(err)
     })
 }
-console.log(globalCorrectAnswerPosition)
-// function myFunction1() {
-//     if (globalCorrectAnswerPosition === questionArray.indexOf) {
-//         console.log("Correct!")
-//     }
-// }
+
+
+function myFunction1() {
+    if (testElement.classList.contains(dingDong)) {
+        console.log("Testing!")
+    }
+}
 //Fetch Trivia API.
 //Declare variables for console.log(json.results[0].question) through json.results[9].question
 //
