@@ -8,6 +8,7 @@ let a2 = document.getElementById('a2')
 let a3 = document.getElementById('a3')
 let a4 = document.getElementById('a4')
 
+
  form.addEventListener('submit', makeRequest)
 
  form.addEventListener('submit', makeRequest)
@@ -49,30 +50,35 @@ console.log(questionArray)
 
 //This variable stores the index # of correct answer after shuffle
 globalCorrectAnswerPosition = questionArray.indexOf(mc4) 
-globalQuestionArray = questionArray
 console.log(globalCorrectAnswerPosition)
+
+globalQuestionArray = questionArray
+
 let q1Text = document.createElement('p')
 q1Text.innerHTML = questionArray[0]
     if (globalCorrectAnswerPosition === 0) {
-        q1Text.setAttribute('class', 'dingDing')
+        a1.setAttribute('class', 'dingDing card-body bg-primary')
 }
 let q2Text = document.createElement('p')
 q2Text.innerHTML = questionArray[1]
 if (globalCorrectAnswerPosition === 1) {
-    q2Text.setAttribute('class', 'dingDing')
+    a2.setAttribute('class', 'dingDing card-body bg-primary')
 }
 
 let q3Text = document.createElement('p')
 q3Text.innerHTML = questionArray[2]
 if (globalCorrectAnswerPosition === 2) {
-    q3Text.setAttribute('class', 'dingDing')
+    a3.setAttribute('class', 'dingDing card-body bg-primary')
 }
 
 let q4Text = document.createElement('p')
 q4Text.innerHTML = questionArray[3]
 if (globalCorrectAnswerPosition === 3) {
-    q4Text.setAttribute('class', 'dingDing')
+    a4.setAttribute('class', 'dingDing card-body bg-primary')
 }
+
+
+
 // let a1 = document.querySelector('a1')
 // //Next up:  append multiple choice answers to bootstrap cards for front end.  
 // let a1Text = document.createElement('p')
@@ -129,20 +135,70 @@ if (globalCorrectAnswerPosition === 3) {
 //             bodyDiv.appendChild(a2)
 //             bodyDiv.appendChild(a3)
 //             bodyDiv.appendChild(a4)
+var score = 0
+document.getElementById("a1").addEventListener("click", function() {
+    if (globalCorrectAnswerPosition === 0){
+        alert("Corect!");
+    score = score + 1;
+    console.log(score)
+    location.reload()
+ }
+    else {
+        alert("Incorrect")
+        location.reload()
+    }
+    
+});
+document.getElementById("a2").addEventListener("click", function() {
+    if (globalCorrectAnswerPosition === 1){
+        alert("Correct!")
+        score = score + 1;
+        console.log(score)
+        location.reload()
+      }
+        else {
+            alert("Incorrect")
+            location.reload()
+        }
+});
+document.getElementById("a3").addEventListener("click", function() {
+    if (globalCorrectAnswerPosition === 2){
+        alert("Correct!")
+        score = score + 1;
+        console.log(score)
+        location.reload()
+    }
+        else {
+            alert("Incorrect")
+            location.reload()
+        }
+});
+document.getElementById("a4").addEventListener("click", function() {
+    if (globalCorrectAnswerPosition === 3){
+        alert("Correct!")
+        score = score + 1;
+        console.log(score)
+        location.reload()
+      }
+        else {
+            alert("Incorrect")
+            location.reload()
+        }
+});
 
-            
+
+      
     })
     .catch(err => {
         console.error(err)
     })
+    
 }
 
+console.log(globalCorrectAnswerPosition)
 
-function myFunction1() {
-    if (testElement.classList.contains(dingDong)) {
-        console.log("Testing!")
-    }
-}
-//Fetch Trivia API.
-//Declare variables for console.log(json.results[0].question) through json.results[9].question
-//
+// function myFunction1() {
+//     if (a1.classList.contains('dingDong')) {
+//         console.log("Testing!")
+//     }
+// }
