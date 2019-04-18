@@ -1,16 +1,29 @@
+.ultra {
+    width: 140px;
+    height: auto;
+    
+}
+.mc:hover {
+    background-color: #7a1616;
+}
+.mc {
+    background-color: #e55b00;
+}
 .main {
     border: 1px solid black;
     text-align: center;
     align-content: center;
-    background-color: blueviolet;
+    background-color: black;
     padding: 15px 0 25px 0;
 }
 .head {
-    border: 1px solid yellow;
+    
     text-align: center;
     align-content: center;
-    background-color: aqua;
-    font-size: 44px;
+    background-color: black;
+    font-size: 36px;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
 }
 .card {
     text-align: center;
@@ -25,4 +38,23 @@ body {
     align-items: center;
     background-color: burlywood;
     
+}
+.buttons_score {
+
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+}
+#pAnswer {
+    background-color: black;
+    color: white;
+    font-size: 22px;
+    font-family: 'Press Start 2P', cursive;
+}
+.progress {
+    margin: 20px 0 0 0;
+}
+#scoreTracker {
+    color: white;
+    background-color: aqua;
 }

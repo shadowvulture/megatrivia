@@ -4,6 +4,11 @@ var globalCorrectAnswerPosition
 var globalQuestionArray
 let questionBox = document.getElementById('questionBox')
 let scoreBox = document.querySelector('score')
+let pAnswer = document.getElementById('pAnswer')
+let progressBar = document.getElementById('progress-bar')
+let scoreTracker = document.getElementById('scoreTracker')
+let headd = document.getElementById('headd')
+let answer = document.querySelector('answer')
 // let a1 = document.getElementById('a1')
 // let a2 = document.getElementById('a2')
 // let a3 = document.getElementById('a3')
@@ -13,10 +18,10 @@ var score = 0
 
 
  form.addEventListener('submit', makeRequest)
-let url = 'https://opentdb.com/api.php?amount=20&type=multiple'
+let url = 'https://opentdb.com/api.php?amount=20&category=15&type=multiple'
 function makeRequest(event) {
     event.preventDefault()
-    event.stopPropagation()
+    pAnswer.textContent = ""
      
 //get value from form from input
 
@@ -55,7 +60,7 @@ console.log(questionArray)
 globalCorrectAnswerPosition = questionArray.indexOf(mc4) 
 console.log(globalCorrectAnswerPosition)
 
-globalQuestionArray = questionArray
+// globalQuestionArray = questionArray
 //Populates possible trivia answers on front-end.
 questionBox.textContent = question
 a1.textContent = questionArray[0]
@@ -69,9 +74,9 @@ a4.textContent = questionArray[3]
             // nameElement.innerHTML = question 
             // questionBox.appendChild(nameElement)
 
-
-document.getElementById("a1").addEventListener("click", function(event) {
-  
+            
+document.getElementById("a1").addEventListener("click", (event) => {
+    event.stopPropagation();
     if (globalCorrectAnswerPosition === 0){
 
     score = score + 1;
@@ -84,6 +89,9 @@ document.getElementById("a1").addEventListener("click", function(event) {
     a3.textContent = ""
     a4.textContent = ""
     alert("Corect!");
+    pAnswer.textContent = "That's correct " + mc4 + "!"
+    scoreTracker.textContent += "|"
+
 
  }
     else {
@@ -93,11 +101,12 @@ document.getElementById("a1").addEventListener("click", function(event) {
         a2.textContent = ""
         a3.textContent = ""
         a4.textContent = ""
+        pAnswer.textContent = "Incorrect.  The correct answer is " + mc4 + "!"
     }
     
 });
-document.getElementById("a2").addEventListener("click", function(event) {
-
+document.getElementById("a2").addEventListener("click", (event) => {
+    event.stopPropagation();
     if (globalCorrectAnswerPosition === 1){
         score = score + 1;
         
@@ -109,6 +118,8 @@ document.getElementById("a2").addEventListener("click", function(event) {
         a3.textContent = ""
         a4.textContent = ""
         alert("Correct!")
+        pAnswer.textContent = "That's correct " + mc4 + "!"
+        scoreTracker.textContent += "|"
      
       }
         else {
@@ -118,10 +129,11 @@ document.getElementById("a2").addEventListener("click", function(event) {
             a2.textContent = ""
             a3.textContent = ""
             a4.textContent = ""
+            pAnswer.textContent = "Incorrect.  The correct answer is " + mc4 + "!"
         }
 });
-document.getElementById("a3").addEventListener("click", function(event) {
-
+document.getElementById("a3").addEventListener("click", (event)  => {
+    event.stopPropagation();
     if (globalCorrectAnswerPosition === 2){
         score = score + 1;
         
@@ -132,6 +144,8 @@ document.getElementById("a3").addEventListener("click", function(event) {
         a3.textContent = ""
         a4.textContent = ""
         alert("Correct!")
+        pAnswer.textContent = "That's correct " + mc4 + "!"
+        scoreTracker.textContent += "|"
         
     }
         else {
@@ -141,10 +155,11 @@ document.getElementById("a3").addEventListener("click", function(event) {
         a2.textContent = ""
         a3.textContent = ""
         a4.textContent = ""
+        pAnswer.textContent = "Incorrect.  The correct answer is " + mc4 + "!"
         }
 });
-document.getElementById("a4").addEventListener("click", function(event) {
-   
+document.getElementById("a4").addEventListener("click", (event) => {
+    event.stopPropagation();
     if (globalCorrectAnswerPosition === 3){
         score = score + 1;
         
@@ -155,25 +170,42 @@ document.getElementById("a4").addEventListener("click", function(event) {
         a3.textContent = ""
         a4.textContent = ""
         alert("Correct!")
+        pAnswer.textContent =  "That's correct " + mc4 + "!"
+        scoreTracker.textContent += "|"
         
       }
         else {
             alert("Incorrect")
             questionBox.textContent = ""
-            aa1.textContent = ""
+            a1.textContent = ""
             a2.textContent = ""
             a3.textContent = ""
             a4.textContent = ""
+            pAnswer.textContent = "Incorrect.  The correct answer is " + mc4 + "!"
         }
         
+       
 });
 
 
       
     })
+
+
     .catch(err => {
         console.error(err)
     })
  
 }
+let progressUp = 0
+function progress () {
 
+    progressUp = progressUp + 5
+    progressBar.setAttribute('style', 'width: ' + progressUp + '%')
+
+    
+}
+
+
+
+//if answer's textContent contains "correct", add 1 to score.
