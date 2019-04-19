@@ -1,4 +1,3 @@
-
 let form = document.querySelector('form')
 var globalCorrectAnswerPosition
 var globalQuestionArray
@@ -7,7 +6,6 @@ let scoreBox = document.querySelector('score')
 let pAnswer = document.getElementById('pAnswer')
 let progressBar = document.getElementById('progress-bar')
 let scoreTracker = document.getElementById('scoreTracker')
-let headd = document.getElementById('headd')
 let answer = document.querySelector('answer')
 // let a1 = document.getElementById('a1')
 // let a2 = document.getElementById('a2')
@@ -18,7 +16,7 @@ var score = 0
 
 
  form.addEventListener('submit', makeRequest)
-let url = 'https://opentdb.com/api.php?amount=20&category=15&type=multiple'
+let url = 'https://opentdb.com/api.php?amount=49&type=multiple'
 function makeRequest(event) {
     event.preventDefault()
     pAnswer.textContent = ""
@@ -88,14 +86,14 @@ document.getElementById("a1").addEventListener("click", (event) => {
     a2.textContent = ""
     a3.textContent = ""
     a4.textContent = ""
-    alert("Corect!");
+    // alert("Corect!");
     pAnswer.textContent = "That's correct " + mc4 + "!"
     scoreTracker.textContent += "|"
 
 
  }
     else {
-        alert("Incorrect")
+        // alert("Incorrect")
         questionBox.textContent = ""
         a1.textContent = ""
         a2.textContent = ""
@@ -117,13 +115,13 @@ document.getElementById("a2").addEventListener("click", (event) => {
         a2.textContent = ""
         a3.textContent = ""
         a4.textContent = ""
-        alert("Correct!")
+        // alert("Correct!")
         pAnswer.textContent = "That's correct " + mc4 + "!"
         scoreTracker.textContent += "|"
      
       }
         else {
-            alert("Incorrect")
+            // alert("Incorrect")
             questionBox.textContent = ""
             a1.textContent = ""
             a2.textContent = ""
@@ -143,13 +141,13 @@ document.getElementById("a3").addEventListener("click", (event)  => {
         a2.textContent = ""
         a3.textContent = ""
         a4.textContent = ""
-        alert("Correct!")
+        // alert("Correct!")
         pAnswer.textContent = "That's correct " + mc4 + "!"
         scoreTracker.textContent += "|"
         
     }
         else {
-            alert("Incorrect")
+            // alert("Incorrect")
         questionBox.textContent = ""
         a1.textContent = ""
         a2.textContent = ""
@@ -169,13 +167,13 @@ document.getElementById("a4").addEventListener("click", (event) => {
         a2.textContent = ""
         a3.textContent = ""
         a4.textContent = ""
-        alert("Correct!")
+        // alert("Correct!")
         pAnswer.textContent =  "That's correct " + mc4 + "!"
         scoreTracker.textContent += "|"
         
       }
         else {
-            alert("Incorrect")
+            // alert("Incorrect")
             questionBox.textContent = ""
             a1.textContent = ""
             a2.textContent = ""
@@ -200,12 +198,15 @@ document.getElementById("a4").addEventListener("click", (event) => {
 let progressUp = 0
 function progress () {
 
-    progressUp = progressUp + 5
+    progressUp = progressUp + 10
     progressBar.setAttribute('style', 'width: ' + progressUp + '%')
 
     
 }
 
+if (progressUp === "width: 100%") {
+    alert("Game Over")
+}
 
 
 //if answer's textContent contains "correct", add 1 to score.
