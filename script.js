@@ -60,13 +60,22 @@ console.log(globalCorrectAnswerPosition)
 
 // globalQuestionArray = questionArray
 //Populates possible trivia answers on front-end.
+function nextQuestion() {
 questionBox.textContent = question
 a1.textContent = questionArray[0]
 a2.textContent = questionArray[1]
 a3.textContent = questionArray[2]
 a4.textContent = questionArray[3]
-
-
+}
+if (count < 11) {
+    nextQuestion()
+} else {
+    questionBox.textContent = ""
+    a1.textContent = ""
+    a2.textContent = ""
+    a3.textContent = ""
+    a4.textContent = ""
+}
             // let nameElement = document.createElement('div')
        
             // nameElement.innerHTML = question 
@@ -200,13 +209,24 @@ function progress () {
 
     progressUp = progressUp + 10
     progressBar.setAttribute('style', 'width: ' + progressUp + '%')
+    
 
     
 }
+theButton = 
+document.getElementById('theButton')
+count = 0;
 
-if (progressUp === "width: 100%") {
-    alert("Game Over")
+function buttonCount () {
+    count += 1;
+    theButton.innerHTML = "Next Question";
+    if (count === 11) {
+
+        alert("Game Over.  I hope you kept score!")
+    }
 }
 
-
-//if answer's textContent contains "correct", add 1 to score.
+//Reset the game
+// function reset () {
+//     location.reload();
+// }

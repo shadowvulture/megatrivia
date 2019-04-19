@@ -64,10 +64,11 @@
 </div>
 </div>
     <div class = 'buttons_score'>
-              <button class="randomButton btn btn-light" onclick="progress()">Click for trivia</button>
+              <button class="randomButton btn btn-light" id = "theButton" onclick="progress(), buttonCount()">Click for trivia</button>
               <div class = "score"> 
                   <!-- Score -->
               </div>
+              <span> <button class="reset" onclick="reset()">Reset</button></button></span>
               <div class="trivia">
 
               </div>
