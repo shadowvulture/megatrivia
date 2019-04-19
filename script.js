@@ -7,6 +7,10 @@ let pAnswer = document.getElementById('pAnswer')
 let progressBar = document.getElementById('progress-bar')
 let scoreTracker = document.getElementById('scoreTracker')
 let answer = document.querySelector('answer')
+let u1 = document.getElementById('u1')
+let u2 = document.getElementById('u2')
+let u3 = document.getElementById('u3')
+let u4 = document.getElementById('u4')
 // let a1 = document.getElementById('a1')
 // let a2 = document.getElementById('a2')
 // let a3 = document.getElementById('a3')
@@ -75,6 +79,11 @@ if (count < 11) {
     a2.textContent = ""
     a3.textContent = ""
     a4.textContent = ""
+    u1.setAttribute('src', 'explosionGif.gif')
+    u2.setAttribute('src', 'explosionGif.gif')
+    u3.setAttribute('src', 'explosionGif.gif')
+    u4.setAttribute('src', 'explosionGif.gif')
+    theButton.textContent = "What part of game over don't you understand?"
 }
             // let nameElement = document.createElement('div')
        
@@ -97,8 +106,10 @@ document.getElementById("a1").addEventListener("click", (event) => {
     a4.textContent = ""
     // alert("Corect!");
     pAnswer.textContent = "That's correct " + mc4 + "!"
-    scoreTracker.textContent += "|"
-
+    u1.setAttribute('src', 'explosionGif.gif')
+    u2.setAttribute('src', 'explosionGif.gif')
+    u3.setAttribute('src', 'explosionGif.gif')
+    u4.setAttribute('src', 'explosionGif.gif')
 
  }
     else {
@@ -126,7 +137,10 @@ document.getElementById("a2").addEventListener("click", (event) => {
         a4.textContent = ""
         // alert("Correct!")
         pAnswer.textContent = "That's correct " + mc4 + "!"
-        scoreTracker.textContent += "|"
+        u1.setAttribute('src', 'explosionGif.gif')
+        u2.setAttribute('src', 'explosionGif.gif')
+        u3.setAttribute('src', 'explosionGif.gif')
+        u4.setAttribute('src', 'explosionGif.gif')
      
       }
         else {
@@ -152,7 +166,10 @@ document.getElementById("a3").addEventListener("click", (event)  => {
         a4.textContent = ""
         // alert("Correct!")
         pAnswer.textContent = "That's correct " + mc4 + "!"
-        scoreTracker.textContent += "|"
+        u1.setAttribute('src', 'explosionGif.gif')
+    u2.setAttribute('src', 'explosionGif.gif')
+    u3.setAttribute('src', 'explosionGif.gif')
+    u4.setAttribute('src', 'explosionGif.gif')
         
     }
         else {
@@ -178,7 +195,10 @@ document.getElementById("a4").addEventListener("click", (event) => {
         a4.textContent = ""
         // alert("Correct!")
         pAnswer.textContent =  "That's correct " + mc4 + "!"
-        scoreTracker.textContent += "|"
+        u1.setAttribute('src', 'explosionGif.gif')
+    u2.setAttribute('src', 'explosionGif.gif')
+    u3.setAttribute('src', 'explosionGif.gif')
+    u4.setAttribute('src', 'explosionGif.gif')
         
       }
         else {
@@ -220,6 +240,10 @@ count = 0;
 function buttonCount () {
     count += 1;
     theButton.innerHTML = "Next Question";
+    u1.setAttribute('src', '')
+    u2.setAttribute('src', '')
+    u3.setAttribute('src', '')
+    u4.setAttribute('src', '')
     if (count === 11) {
 
         alert("Game Over.  I hope you kept score!")
